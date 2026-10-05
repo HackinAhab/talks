@@ -1,0 +1,11 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+  - role: worker
+    extraPortMappings:
+      # Use a distinct host port so both clusters can run together.
+      - containerPort: 30080
+        hostPort: 8082
+        listenAddress: "127.0.0.1"
+        protocol: TCP

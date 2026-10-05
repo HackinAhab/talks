@@ -1,0 +1,14 @@
+{
+  "queries": [
+    {
+      "name": "BHK Demo: External to Privileged Node Path",
+      "description": "External traffic reaches the intentionally privileged demo pod, which has an escape-relevant path to its node.",
+      "query": "MATCH p=(external:BHK_External)-[:BHK_ExternalRoutesTo]->(:BHK_Service)-[:BHK_RoutesTo]->(pod:BHK_Pod)-[:BHK_CE_PRIV_MOUNT|BHK_mountedKubelet]->(node:BHK_Node)\nWHERE external.cluster = 'bhk-demo' AND pod.namespace = 'bhk-demo'\nRETURN p\nLIMIT 25"
+    },
+    {
+      "name": "BHK Demo: External to Secret",
+      "description": "The demo pod mounts its service account token, whose RBAC role can read a synthetic Secret.",
+      "query": "MATCH p=(s:BHK_External)-[*1..4]->(t:BHK_Secret)\nWHERE s.cluster = 'bhk-demo-2' AND t.name = 'synthetic-api-credential' AND t.namespace = 'bhk-demo'\nRETURN p\nLIMIT 1000"
+    }
+  ]
+}
