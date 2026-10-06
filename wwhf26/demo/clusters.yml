@@ -1,13 +1,14 @@
 # Run from demo/: bloodhound-kube collect --clusters-config clusters.yml
 # scripts/demo.sh up and collect export a minified kubeconfig for each cluster.
 defaults:
-  scope: core
+  scope: all
   allNamespaces: true
   redacted: false
   concurrency: 10
   paginateLimit: 100
   clusterType: kubernetes
   outputDir: ./output
+  acceptCRDs: true
 
 clusters:
   - name: bhk-demo

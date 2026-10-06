@@ -8,8 +8,8 @@ MANIFESTS=(node-path.yaml secret-path.yaml)
 HOST_PORTS=(8081 8082)
 OUTPUT_DIR="${ROOT}/output"
 BHK_BIN="${BHK_BIN:-bloodhound-kube}"
-BLOODHOUND_TOKEN_ID='dd7ac1e1-57b4-4038-83fb-8db56d7f7429'
-BLOODHOUND_TOKEN_KEY='5GSp+1w1laCsoHj6U95WqK8flZ6Z/29cc/t2kFEWbnp+yd1WlkTfhg=='
+BLOODHOUND_TOKEN_ID='b798880a-7654-4ef7-b681-62a49b2f7055'
+BLOODHOUND_TOKEN_KEY='d06vI05CLlZJezRVurvioHlYIVtAD4eMN3xruatrTNkkMZzIC60HaQ=='
 
 need() {
   command -v "$1" >/dev/null 2>&1 || {
